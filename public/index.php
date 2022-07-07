@@ -11,4 +11,4 @@ use Patterns\Singleton\DBConnection;
 $db = DBConnection::getInstance();
 $db->setDriver('MySQL');
 $db2 = DBConnection::getInstance();
-echo $db2->getDriver();
+echo $db2->getDriver() . '<p><img src="/images/singleton.bmp"></p>';
