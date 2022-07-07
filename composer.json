@@ -1,0 +1,18 @@
+{
+    "name": "patterns/edward",
+    "description": "graid midl+",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Patterns\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Edward Tarasov",
+            "email": "edvard@mail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
