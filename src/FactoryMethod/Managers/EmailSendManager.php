@@ -2,8 +2,8 @@
 
 namespace Patterns\FactoryMethod\Managers;
 
-use Patterns\FactoryMethod\Object\EmailObject;
-use Patterns\FactoryMethod\Object\SenderObject;
+use Patterns\FactoryMethod\Objects\EmailObject;
+use Patterns\FactoryMethod\Objects\SenderObject;
 
 class EmailSendManager extends SendManager
 {

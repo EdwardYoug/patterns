@@ -1,6 +1,8 @@
 <?php
 
-namespace Patterns\FactoryMethod\Object;
+namespace Patterns\FactoryMethod\Objects;
+
+use Patterns\FactoryMethod\Objects\SenderObject;
 
 class TelegramObject extends SenderObject
 {

@@ -2,7 +2,7 @@
 
 namespace Patterns\FactoryMethod\Managers;
 
-use Patterns\FactoryMethod\Object\SenderObject;
+use Patterns\FactoryMethod\Objects\SenderObject;
 
 abstract class SendManager
 {

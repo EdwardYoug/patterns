@@ -2,8 +2,8 @@
 
 namespace Patterns\FactoryMethod\Managers;
 
-use Patterns\FactoryMethod\Object\SenderObject;
-use Patterns\FactoryMethod\Object\TelegramObject;
+use Patterns\FactoryMethod\Objects\SenderObject;
+use Patterns\FactoryMethod\Objects\TelegramObject;
 
 class TelegramSendManager extends SendManager
 {

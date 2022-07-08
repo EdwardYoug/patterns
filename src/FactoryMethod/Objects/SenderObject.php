@@ -1,6 +1,6 @@
 <?php
 
-namespace Patterns\FactoryMethod\Object;
+namespace Patterns\FactoryMethod\Objects;
 
 abstract class SenderObject
 {
