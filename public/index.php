@@ -8,6 +8,7 @@ use Patterns\ChainOfResponsibility\Application;
 use Patterns\ChainOfResponsibility\Middleware\FirstMiddleware;
 use Patterns\ChainOfResponsibility\Middleware\SecondMiddleware;
 use Patterns\ChainOfResponsibility\Middleware\ThirdMiddleware;
+use Patterns\Facade\Operator;
 use Patterns\FactoryMethod\Managers\EmailSendManager;
 use Patterns\FactoryMethod\Managers\TelegramSendManager;
 use Patterns\Singleton\DBConnection;
@@ -88,3 +89,13 @@ $blogPost = $builder
     ->get();
 
 echo $blogPost->getTitle();
+
+/**
+ * Фасад
+ */
+echo '<h2>Фасад</h2>';
+echo '<br>';
+echo '<p><img src="/images/facade.jpg"></p><br>';
+
+$facade = new Operator('tinkoff');
+$facade->sendMoney('541');
