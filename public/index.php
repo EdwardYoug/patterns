@@ -11,6 +11,8 @@ use Patterns\ChainOfResponsibility\Middleware\ThirdMiddleware;
 use Patterns\Facade\Operator;
 use Patterns\FactoryMethod\Managers\EmailSendManager;
 use Patterns\FactoryMethod\Managers\TelegramSendManager;
+use Patterns\Observer\Observable;
+use Patterns\Observer\Observer;
 use Patterns\Singleton\DBConnection;
 
 /**
@@ -99,3 +101,10 @@ echo '<p><img src="/images/facade.jpg"></p><br>';
 
 $facade = new Operator('tinkoff');
 $facade->sendMoney('541');
+
+echo '<h2>Наблюдатель</h2>';
+echo '<br>';
+echo '<p><img src="/images/observer.jpg"></p><br>';
+$observable = new Observable();
+$observable->addObserver(new Observer());
+$observable->notifyObservers();
