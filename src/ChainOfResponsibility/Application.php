@@ -42,10 +42,10 @@ final class Application
         }
     }
 
-    public function handle()
+    public function handle(): void
     {
-        if (!empty($this->middleware) && !$this->middleware->work($this->request)){
-            echo 'Цепочка не отработала'.PHP_EOL. 'Надо добавить : ?check1=1&check2=2&check3=3';
+        if (!empty($this->middleware) && !$this->middleware->work($this->request)) {
+            echo 'Цепочка не отработала' . PHP_EOL . 'Надо добавить : ?check1=1&check2=2&check3=3';
             exit;
         }
     }

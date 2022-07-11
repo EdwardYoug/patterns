@@ -3,6 +3,7 @@
 require_once '../vendor/autoload.php';
 
 use Patterns\AbstractFactory\Managers\ToDataBaseImporterManager;
+use Patterns\Builder\Builders\BlogPostBuilder;
 use Patterns\ChainOfResponsibility\Application;
 use Patterns\ChainOfResponsibility\Middleware\FirstMiddleware;
 use Patterns\ChainOfResponsibility\Middleware\SecondMiddleware;
@@ -38,8 +39,15 @@ echo '<h2>AbstractFactory</h2>';
 echo '<br>';
 $af = new ToDataBaseImporterManager();
 
-$af->getExcelImporter()->parce('/../1.xlsx')->postProcces('Добавить что то')->import();
-$af->getExcelImporter()->parce('1.xlsx')->import();
+$af
+    ->getExcelImporter()
+    ->parce('/../1.xlsx')
+    ->postProcces('Добавить что то')
+    ->import();
+$af
+    ->getExcelImporter()
+    ->parce('1.xlsx')
+    ->import();
 echo '<p><img src="/images/abstractFactory.jpg"></p>';
 
 /**
@@ -47,7 +55,7 @@ echo '<p><img src="/images/abstractFactory.jpg"></p>';
  */
 echo '<h2>Цепочка обязанностей</h2>';
 echo '<br>';
-
+echo '<p><img src="/images/ChainOfResponsibility.jpg"></p><br>';
 $application = new Application($_REQUEST);
 $application->addMiddleware(
     new FirstMiddleware(),
@@ -56,3 +64,27 @@ $application->addMiddleware(
 );
 
 $application->handle();
+
+/**
+ * Builder
+ */
+echo '<h2>Построитель</h2>';
+echo '<br>';
+echo '<p><img src="/images/builder.jpg"></p><br>';
+
+$builder = new BlogPostBuilder();
+$blogPost = $builder
+    ->create()
+    ->setTitle('Название')
+    ->setBody('Тело')
+    ->setCategories([
+        'Категория 1',
+        'Категория 2',
+    ])
+    ->setTags([
+        'Тэг 1',
+        'Тег 2',
+    ])
+    ->get();
+
+echo $blogPost->getTitle();
