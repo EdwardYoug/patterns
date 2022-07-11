@@ -3,6 +3,10 @@
 require_once '../vendor/autoload.php';
 
 use Patterns\AbstractFactory\Managers\ToDataBaseImporterManager;
+use Patterns\ChainOfResponsibility\Application;
+use Patterns\ChainOfResponsibility\Middleware\FirstMiddleware;
+use Patterns\ChainOfResponsibility\Middleware\SecondMiddleware;
+use Patterns\ChainOfResponsibility\Middleware\ThirdMiddleware;
 use Patterns\FactoryMethod\Managers\EmailSendManager;
 use Patterns\FactoryMethod\Managers\TelegramSendManager;
 use Patterns\Singleton\DBConnection;
@@ -37,3 +41,18 @@ $af = new ToDataBaseImporterManager();
 $af->getExcelImporter()->parce('/../1.xlsx')->postProcces('Добавить что то')->import();
 $af->getExcelImporter()->parce('1.xlsx')->import();
 echo '<p><img src="/images/abstractFactory.jpg"></p>';
+
+/**
+ * ChainOfResponsibility
+ */
+echo '<h2>Цепочка обязанностей</h2>';
+echo '<br>';
+
+$application = new Application($_REQUEST);
+$application->addMiddleware(
+    new FirstMiddleware(),
+    new SecondMiddleware(),
+    new ThirdMiddleware(),
+);
+
+$application->handle();
